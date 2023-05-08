@@ -9,7 +9,12 @@
     <body>
         <div class="container">
             <h1>Template Classe 89</h1>
-            <img src="{{ Vite::asset('resources/img/pluto.webp') }}" alt="" srcset="">
+            <ul>
+           @foreach ($trains as $train)
+               <li>{{ $train->train_code }} - {{ $train->departure_time }} - {{ $train->arrival_time }}</li>
+               <li>{{ \Carbon\Carbon::parse($train->departure_time)->locale('fr_FR')->isoFormat('LLLL'); }}
+           @endforeach
+            </ul>
         </div>
 
     </body>
