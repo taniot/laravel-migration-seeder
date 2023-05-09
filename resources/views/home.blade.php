@@ -11,7 +11,7 @@
             <h1>Template Classe 89</h1>
             <ul>
            @foreach ($trains as $train)
-               <li>{{ $train->train_code }} - {{ $train->departure_time }} - {{ $train->arrival_time }}</li>
+               <li>{{ $train->train_code }} - {{ $train->departure_time }} - {{ $train->arrival_time }} - {{ $train->cancelled }}</li>
                <li>{{ \Carbon\Carbon::parse($train->departure_time)->locale('fr_FR')->isoFormat('LLLL'); }}
            @endforeach
             </ul>

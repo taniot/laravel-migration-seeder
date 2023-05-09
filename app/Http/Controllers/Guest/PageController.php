@@ -15,7 +15,10 @@ class PageController extends Controller
 
         // dd(now());
         // $trains = Train::all();
-        $trains = Train::where('departure_time', '>=', now('Europe/Rome'))->get();
+        $trains = Train::where('departure_time', '>=', now('Europe/Rome'))
+                        ->where('cancelled', 0)
+                        ->orderBy('departure_time', 'ASC')
+                        ->get();
 
 
         // dd($trains);
